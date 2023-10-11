@@ -1,0 +1,53 @@
+{
+   "name": "{改成你想要的mod名字}",
+   "version": "1.0.0",
+   "styleFileList": [],
+   "scriptFileList_earlyload": [],
+   "scriptFileList_inject_early": [],
+   "scriptFileList_preload": [],
+   "scriptFileList": [],
+   "tweeFileList": [],
+   "imgFileList": [],
+   "additionFile": [],
+   "addonPlugin": [
+      {
+         "modName": "TweeReplacer",
+         "addonName": "TweeReplacerAddon",
+         "modVersion": "1.0.0",
+         "params": []
+      },
+      {
+         "modName": "ReplacePatcher",
+         "addonName": "ReplacePatcherAddon",
+         "modVersion": "1.0.0",
+         "params": {
+            "twee": [
+               {
+                  "TODO": "options.twee",
+                  "passageName": "Options Overlay",
+                  "from": "<<widget \"optionstheme\">>\n\t<<setupOptions>>",
+                  "to": "<<widget \"optionstheme\">>\n\t<<setupOptions>>\n\t<label><<radiobutton \"$options.{改成对应的bodystyle或closeup}\" \"{img里文件夹的名字}\" autocheck>> {选项-主题里显示的名字}</label> | <br>"
+               }
+            ]
+         }
+      }
+   ],
+   "dependenceInfo": [
+      {
+         "modName": "ModLoader",
+         "version": ">=1.1.0"
+      },
+      {
+         "modName": "ModLoader DoL ImageLoaderHook",
+         "version": "1.0.0"
+      },
+      {
+         "modName": "TweeReplacer",
+         "version": "1.0.0"
+      },
+      {
+         "modName": "ReplacePatcher",
+         "version": "1.0.0"
+      }
+   ]
+}
