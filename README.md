@@ -18,8 +18,9 @@
 /hair/
 /body/basehead
 /body/cum/Face 1,2 & /body/cum/Face 3,4 & /body/cum/Face 5  **脸部精液**
-/clothes/head **帽子**
-/clothes/???/back.png  **显示在背后的衣物，例如修女帽的背面**
+/clothes/head 
+/clothes/face
+/clothes/overhead //需要overfits.mod或自己开槽
 /transformations/
 ```
 
@@ -29,7 +30,6 @@
 /body
 /hair/phair
 /clothes
-/clothes/face 	**注意面部饰品只能跟着人模走**
 ```
 
 
