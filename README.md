@@ -21,11 +21,14 @@
 2. 将所要安装的美化资源文件部署在local文件夹下，以原版资源为例，即将要迁移的资源的img/face/default路径下的所有文件复制到"带有Modloader的游戏文件/img/face/local"路径下，即第一步所新建local文件夹内
 3. 启动在该游戏文件路径下的带有Modloader的游戏本体，在美化选择界面选择导入本地local特写
 
+![image](https://github.com/suin14/Beauty-selector-mod/assets/128110657/a746d5ae-e82c-4b37-af97-3797aec2a2ee)
+
+
 
 
 ## 注意
 
-需要注意的是，本地美化所在游戏文件路径应当与使用的带Modloader的本体所在的游戏路径保持一致，即请修改Modloader同一根目录下的img文件
+需要注意的是，本地美化所在游戏文件路径应当与使用的带Modloader的本体所在的游戏路径保持一致，即请修改使用的Modloader同一根目录下的img文件
 
 
 
