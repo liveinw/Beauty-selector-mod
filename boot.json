@@ -1,0 +1,1096 @@
+{
+  "name": "beauty-selector",
+  "version": "3.0.0",
+  "styleFileList": [],
+  "scriptFileList": [],
+  "tweeFileList": [],
+  "imgFileList": [],
+  "additionFile": [
+    "readme.md"
+  ],
+  "addonPlugin": [
+    {
+      "modName": "TweeReplacer",
+      "addonName": "TweeReplacerAddon",
+      "modVersion": "1.0.0",
+      "params": [
+        {
+          "passage": "gameStartOnly",
+          "findString": "<<setupTransformationPiecesObject>>",
+          "replace": "<<setupTransformationPiecesObject>>\n\t<<if $closeup is undefined>>\n\t\t<<set $closeup to \"default\">>\n\t<</if>>\n\t<<if $bodystyle is undefined>>\n\t\t<<set $bodystyle to \"default\">>\n\t<</if>>"
+        },
+        {
+          "passage": "Widgets variablesVersionUpdate",
+          "findString": "<<if $facestyle is undefined>>",
+          "replace": "<<if $closeup is undefined>>\n\t\t<<set $closeup to \"default\">>\n\t<</if>>\n\t<<if $bodystyle is undefined>>\n\t\t<<set $bodystyle to \"default\">>\n\t<</if>>\n\t\n\t<<if $facestyle is undefined>>"
+        }
+      ]
+    },
+    {
+      "modName": "ReplacePatcher",
+      "addonName": "ReplacePatcherAddon",
+      "modVersion": "1.0.0",
+      "params": {
+        "js": [
+          {
+            "TODO": "canvasmodel-editor.js",
+            "fileName": "canvasmodel-editor.js",
+            "from": "selectOption(\"facestyle\", [\"default\"]),",
+            "to": "selectOption(\"facestyle\", [\"default\"]),\n\t\t\t\t\t\tselectOption(\"closeup\", [\"default\"]),\n\t\t\t\t\t\tselectOption(\"bodystyle\", [\"default\"]),"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "\"facestyle\": \"default\",",
+            "to": "\"facestyle\": \"default\",\n\t\t\t\"closeup\": \"default\",\n\t\t\t\"bodystyle\": \"default\","
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return \"img/body/basehead.png\"",
+            "to": "return \"img/body/\" + options.closeup + \"/basehead.png\""
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return 'img/face/' + options.facestyle + '/base.png'",
+            "to": "return 'img/face/' + options.closeup + '/base.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return 'img/face/' + options.facestyle + '/freckles.png'",
+            "to": "return 'img/face/' + options.closeup + '/freckles.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return 'img/face/' + options.facestyle + '/ears.png'",
+            "to": "return 'img/face/' + options.closeup + '/ears.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return 'img/face/' + options.facestyle + '/eyes.png'",
+            "to": "return 'img/face/' + options.closeup + '/eyes.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return 'img/face/' + options.facestyle + '/' + (options.eyes_bloodshot ? \"sclerabloodshot\" : \"sclera\") + '.png'",
+            "to": "return 'img/face/' + options.closeup + '/' + (options.eyes_bloodshot ? \"sclerabloodshot\" : \"sclera\") + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return 'img/face/' + options.facestyle + '/' + (options.trauma ? \"irisempty\" : \"iris\") + (options.eyes_half ? \"_halfclosed\" : \"\") + '_left.png'",
+            "to": "return 'img/face/' + options.closeup + '/' + (options.trauma ? \"irisempty\" : \"iris\") + (options.eyes_half ? \"_halfclosed\" : \"\") + '_left.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return 'img/face/' + options.facestyle + '/' + (options.trauma ? \"irisempty\" : \"iris\") + (options.eyes_half ? \"_halfclosed\" : \"\") + '_right.png'",
+            "to": "return 'img/face/' + options.closeup + '/' + (options.trauma ? \"irisempty\" : \"iris\") + (options.eyes_half ? \"_halfclosed\" : \"\") + '_right.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return 'img/face/' + options.facestyle + '/eyelids' + (options.eyes_half ? \"_halfclosed\" : \"\") + '.png'",
+            "to": "return 'img/face/' + options.closeup + '/eyelids' + (options.eyes_half ? \"_halfclosed\" : \"\") + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return 'img/face/' + options.facestyle + '/lashes' + (options.eyes_half ? \"_halfclosed\" : \"\") + '.png'",
+            "to": "return 'img/face/' + options.closeup + '/lashes' + (options.eyes_half ? \"_halfclosed\" : \"\") + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return 'img/face/' + options.facestyle + '/makeup/eyeshadows' + (options.eyes_half ? \"_halfclosed\" : \"\") + '.png'",
+            "to": "return 'img/face/' + options.closeup + '/makeup/eyeshadows' + (options.eyes_half ? \"_halfclosed\" : \"\") + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "'img/face/' + options.facestyle + '/makeup/mascara' + (options.eyes_half ? \"_halfclosed\" : \"\") + '.png'",
+            "to": "'img/face/' + options.closeup + '/makeup/mascara' + (options.eyes_half ? \"_halfclosed\" : \"\") + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return 'img/face/' + options.facestyle + '/brow' + options.brows + '.png'",
+            "to": "return 'img/face/' + options.closeup + '/brow' + options.brows + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return 'img/face/' + options.facestyle + '/mouth' + options.mouth + '.png'",
+            "to": "return 'img/face/' + options.closeup + '/mouth' + options.mouth + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return 'img/face/' + options.facestyle + '/makeup/lipstick_' + options.mouth + '.png'",
+            "to": "return 'img/face/' + options.closeup + '/makeup/lipstick_' + options.mouth + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return 'img/face/' + options.facestyle + '/blush' + options.blush + '.png'",
+            "to": "return 'img/face/' + options.closeup + '/blush' + options.blush + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return 'img/face/' + options.facestyle + '/' + 'tear' + options.tears + '.png'",
+            "to": "return 'img/face/' + options.closeup + '/' + 'tear' + options.tears + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return 'img/face/' + options.facestyle + '/' + 'makeup/mascara' + options.mascara_running + '.png'",
+            "to": "return 'img/face/' + options.closeup + '/' + 'makeup/mascara' + options.mascara_running + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/basenoarms-${options.body_type}.png",
+            "to": "img/body/${options.bodystyle}/basenoarms-${options.body_type}.png"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "\"img/body/breasts/\"",
+            "to": "\"img/body/\" + options.bodystyle + \"/breasts/\""
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "\"img/body/preggyBelly/pregnancy_belly_\" + options.belly + \".png\"",
+            "to": "\"img/body/\" + options.bodystyle + \"/preggyBelly/pregnancy_belly_\" + options.belly + \".png\""
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "'img/body/breasts/chestparasite' + options.breast_size + '.png'",
+            "to": "'img/body/' + options.bodystyle + '/breasts/chestparasite' + options.breast_size + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "'img/body/breasts/chestslime' + options.breast_size + '.png'",
+            "to": "'img/body/' + options.bodystyle + '/breasts/chestslime' + options.breast_size + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "'img/body/breasts/breastsparasite' + options.breast_size + '.png'",
+            "to": "'img/body/' + options.bodystyle + '/breasts/breastsparasite' + options.breast_size + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "\"img/body/leftarm.png\"",
+            "to": "\"img/body/\" + options.bodystyle + \"/leftarm.png\""
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/leftarmidle-${options.body_type}.png",
+            "to": "img/body/${options.bodystyle}/leftarmidle-${options.body_type}.png"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "\"img/body/rightarm.png\"",
+            "to": "\"img/body/\" + options.bodystyle + \"/rightarm.png\""
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/rightarmidle-${options.body_type}.png",
+            "to": "img/body/${options.bodystyle}/rightarmidle-${options.body_type}.png"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/penis/penis_chastitysmall.png",
+            "to": "img/body/\" + options.bodystyle + \"/penis/penis_chastitysmall.png"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/penis/penis_chastity.png",
+            "to": "img/body/\" + options.bodystyle + \"/penis/penis_chastity.png"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "(options.balls",
+            "to": "options.bodystyle + \"/\" + (options.balls"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/penis/penisurchin",
+            "to": "img/body/' + options.bodystyle + '/penis/penisurchin"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/penis/penisslime",
+            "to": "img/body/' + options.bodystyle + '/penis/penisslime"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/penis/penisparasite",
+            "to": "img/body/' + options.bodystyle + '/penis/penisparasite"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/cliturchin.png",
+            "to": "img/body/' + options.bodystyle + '/cliturchin.png"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/clitslime.png",
+            "to": "img/body/' + options.bodystyle + '/clitslime.png"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/baseparasite.png",
+            "to": "img/body/' + options.bodystyle + '/baseparasite.png"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/penis/condom",
+            "to": "img/body/' + options.bodystyle + '/penis/condom"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/cum/VaginalCumDrip",
+            "to": "img/body/\" + options.bodystyle + \"/cum/VaginalCumDrip"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/cum/AnalCumDrip",
+            "to": "img/body/\" + options.bodystyle + \"/cum/AnalCumDrip"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/cum/MouthCumDrip",
+            "to": "img/body/\" + options.bodystyle + \"/cum/MouthCumDrip"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/cum/Chest",
+            "to": "img/body/\" + options.bodystyle + \"/cum/Chest"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/cum/Face ",
+            "to": "img/body/\" + options.closeup + \"/cum/Face "
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/cum/Feet ",
+            "to": "img/body/\" + options.bodystyle + \"/cum/Feet "
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/cum/Left Arm ",
+            "to": "img/body/\" + options.bodystyle + \"/cum/Left Arm "
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/cum/Right Arm ",
+            "to": "img/body/\" + options.bodystyle + \"/cum/Right Arm "
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/cum/Neck ",
+            "to": "img/body/\" + options.bodystyle + \"/cum/Neck "
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/cum/Thighs ",
+            "to": "img/body/\" + options.bodystyle + \"/cum/Thighs "
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/cum/Tummy ",
+            "to": "img/body/\" + options.bodystyle + \"/cum/Tummy "
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return 'img/hair/sides/' + options.hair_sides_type + '/' + options.hair_sides_length + '.png'",
+            "to": "return 'img/hair/' + options.closeup + '/sides/' + options.hair_sides_type + '/' + options.hair_sides_length + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return 'img/hair/fringe/' + options.hair_fringe_type + '/' + options.hair_fringe_length + '.png'",
+            "to": "return 'img/hair/' + options.closeup + '/fringe/' + options.hair_fringe_type + '/' + options.hair_fringe_length + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return \"img/hair/back/\" + options.hair_sides_type + '/' + \"feet.png\"",
+            "to": "return \"img/hair/\" + options.closeup + \"/back/\" + options.hair_sides_type + '/' + \"feet.png\""
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return \"img/hair/back/\" + options.hair_sides_type + '/' + \"thighs.png\"",
+            "to": "return \"img/hair/\" + options.closeup + \"/back/\" + options.hair_sides_type + '/' + \"thighs.png\""
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return \"img/hair/back/\" + options.hair_sides_type + '/' + options.hair_sides_length + \".png\"",
+            "to": "return \"img/hair/\" + options.closeup + \"/back/\" + options.hair_sides_type + '/' + options.hair_sides_length + \".png\""
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return 'img/hair/phair/pb' + options.pbhair_level + '.png'",
+            "to": "return 'img/hair/' + options.bodystyle + '/phair/pb' + options.pbhair_level + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return 'img/hair/phair/pbstrip' + options.pbhair_strip + '.png'",
+            "to": "return 'img/hair/' + options.bodystyle + '/phair/pbstrip' + options.pbhair_strip + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return 'img/hair/phair/balls/' + options.penis_size + '_pb' + options.pbhair_balls + '.png'",
+            "to": "return 'img/hair/' + options.bodystyle + '/phair/balls/' + options.penis_size + '_pb' + options.pbhair_balls + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/mannequin/basenoarms.png",
+            "to": "img/body/\" + options.bodystyle + \"/mannequin/basenoarms.png"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/mannequin/basehead.png",
+            "to": "img/body/\" + options.bodystyle + \"/mannequin/basehead.png"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return \"img/body/mannequin/breasts/\" +",
+            "to": "return \"img/body/\" + options.bodystyle + \"/mannequin/breasts/\" +"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/mannequin/leftarmidle.png",
+            "to": "img/body/\" + options.bodystyle + \"/mannequin/leftarmidle.png"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/mannequin/rightarmidle.png",
+            "to": "img/body/\" + options.bodystyle + \"/mannequin/rightarmidle.png"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/body/mannequin/penis.png",
+            "to": "img/body/\" + options.bodystyle + \"/mannequin/penis.png"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "\"img/clothes/head/\" + options.worn_over_head_setup.variable + \"/mask.png\"",
+            "to": "\"img/clothes/\" + options.closeup + \"/head/\" + options.worn_over_head_setup.variable + \"/mask.png\""
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "\"img/clothes/head/\" + options.worn_head_setup.variable + \"/mask_ponytail.png\"",
+            "to": "\"img/clothes/\" + options.closeup + \"/head/\" + options.worn_head_setup.variable + \"/mask_ponytail.png\""
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "\"img/clothes/head/\" + options.worn_head_setup.variable + \"/mask.png\"",
+            "to": "\"img/clothes/\" + options.closeup + \"/head/\" + options.worn_head_setup.variable + \"/mask.png\""
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "options.belly_mask_lower_shadow_src = \"img/clothes/belly/shadow_\" + options.belly + \".png\"",
+            "to": "options.belly_mask_lower_shadow_src = \"img/clothes/\" + options.bodystyle + \"/belly/shadow_\" + options.belly + \".png\""
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "options.belly_mask_upper_shadow_src = \"img/clothes/belly/shadow_\" + options.belly + \".png\"",
+            "to": "options.belly_mask_upper_shadow_src = \"img/clothes/\" + options.bodystyle + \"/belly/shadow_\" + options.belly + \".png\""
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/clothes/belly/mask_min_\" + options.belly + \".png",
+            "to": "img/clothes/\" + options.bodystyle + \"/belly/mask_min_\" + options.belly + \".png"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/clothes/belly/mask_\" + options.belly + \".png",
+            "to": "img/clothes/\" + options.bodystyle + \"/belly/mask_\" + options.belly + \".png"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "options.belly_mask_clip_src = \"img/clothes/belly/mask_clip_\" + options.belly + \".png\"",
+            "to": "options.belly_mask_clip_src = \"img/clothes/\" + options.bodystyle + \"/belly/mask_clip_\" + options.belly + \".png\""
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/clothes/belly/mask_shirt_left.png",
+            "to": "img/clothes/\" + options.bodystyle + \"/belly/mask_shirt_left.png"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/clothes/belly/mask_shirt_right.png",
+            "to": "img/clothes/\" + options.bodystyle + \"/belly/mask_shirt_right.png"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "options.belly_mask_under_clip_src = \"img/clothes/belly/mask_clip_\" + options.belly + \".png\"",
+            "to": "options.belly_mask_under_clip_src = \"img/clothes/\" + options.bodystyle + \"/belly/mask_clip_\" + options.belly + \".png\""
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/clothes/genitals/' + options.worn_genitals_setup.variable + '/urchin.png",
+            "to": "img/clothes/' + options.bodystyle + '/genitals/' + options.worn_genitals_setup.variable + '/urchin.png"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/clothes/genitals/' + options.worn_genitals_setup.variable + '/slime.png",
+            "to": "img/clothes/' + options.bodystyle + '/genitals/' + options.worn_genitals_setup.variable + '/slime.png"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "'img/clothes/genitals/' + options.worn_genitals_setup.variable + '/' + options.worn_genitals_integrity +",
+            "to": "'img/clothes/' + options.bodystyle + '/genitals/' + options.worn_genitals_setup.variable + '/' + options.worn_genitals_integrity +"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "'img/clothes/lower/' +\n\t\t\t\t\toptions.worn_lower_setup.variable + '/' +\n\t\t\t\t\t(options.worn_lower_setup.accessory_integrity_img",
+            "to": "'img/clothes/' + options.bodystyle + '/lower/' +\n\t\t\t\t\toptions.worn_lower_setup.variable + '/' +\n\t\t\t\t\t(options.worn_lower_setup.accessory_integrity_img"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "'img/clothes/lower/' + options.worn_lower_setup.variable + '/' + 'penis.png'",
+            "to": "'img/clothes/' + options.bodystyle + '/lower/' + options.worn_lower_setup.variable + '/' + 'penis.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "'img/clothes/lower/' + options.worn_lower_setup.variable + '/' + 'acc_penis.png'",
+            "to": "'img/clothes/' + options.bodystyle + '/lower/' + options.worn_lower_setup.variable + '/' + 'acc_penis.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "'img/clothes/under_lower/' + options.worn_under_lower_setup.variable + '/' + 'penis.png'",
+            "to": "'img/clothes/' + options.bodystyle + '/under_lower/' + options.worn_under_lower_setup.variable + '/' + 'penis.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "'img/clothes/under_lower/' + options.worn_under_lower_setup.variable + '/' + 'acc_penis.png'",
+            "to": "'img/clothes/' + options.bodystyle + '/under_lower/' + options.worn_under_lower_setup.variable + '/' + 'acc_penis.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "'img/clothes/hands/' +\n\t\t\t\t\toptions.worn_hands_setup.variable + '/' +\n\t\t\t\t\t(options.arm_left === \"cover\" ? \"left_cover\" : \"left\") + '.png'",
+            "to": "'img/clothes/' + options.bodystyle + '/hands/' +\n\t\t\t\t\toptions.worn_hands_setup.variable + '/' +\n\t\t\t\t\t(options.arm_left === \"cover\" ? \"left_cover\" : \"left\") + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "'img/clothes/hands/' +\n\t\t\t\t\toptions.worn_hands_setup.variable + '/' +\n\t\t\t\t\t(options.arm_left === \"cover\" ? \"left_cover\" : \"left\") + '_acc.png'",
+            "to": "'img/clothes/' + options.bodystyle + '/hands/' +\n\t\t\t\t\toptions.worn_hands_setup.variable + '/' +\n\t\t\t\t\t(options.arm_left === \"cover\" ? \"left_cover\" : \"left\") + '_acc.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "'img/clothes/hands/' +\n\t\t\t\t\toptions.worn_hands_setup.variable + '/' +\n\t\t\t\t\t(options.arm_right === \"cover\" ? \"right_cover\" : \"right\") + '.png'",
+            "to": "'img/clothes/' + options.bodystyle + '/hands/' +\n\t\t\t\t\toptions.worn_hands_setup.variable + '/' +\n\t\t\t\t\t(options.arm_right === \"cover\" ? \"right_cover\" : \"right\") + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "'img/clothes/hands/' +\n\t\t\t\t\toptions.worn_hands_setup.variable + '/' +\n\t\t\t\t\t(options.arm_right === \"cover\" ? \"right_cover\" : \"right\") + '_acc.png'",
+            "to": "'img/clothes/' + options.bodystyle + '/hands/' +\n\t\t\t\t\toptions.worn_hands_setup.variable + '/' +\n\t\t\t\t\t(options.arm_right === \"cover\" ? \"right_cover\" : \"right\") + '_acc.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "'img/clothes/head/' +\n\t\t\t\t\toptions.worn_head_setup.variable + '/' +\n\t\t\t\t\t(options.worn_head_setup.name === \"cat hoodie hood\" && options.worn_upper_setup.name === \"cat hoodie\" ? options.worn_upper_integrity : options.worn_head_integrity) + '.png'",
+            "to": "'img/clothes/' + options.closeup + '/head/' +\n\t\t\t\t\toptions.worn_head_setup.variable + '/' +\n\t\t\t\t\t(options.worn_head_setup.name === \"cat hoodie hood\" && options.worn_upper_setup.name === \"cat hoodie\" ? options.worn_upper_integrity : options.worn_head_integrity) + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "'img/clothes/head/' +\n\t\t\t\t\toptions.worn_head_setup.variable + '/' +\n\t\t\t\t\t(options.worn_head_setup.name === \"cat hoodie hood\" && options.worn_upper_setup.name === \"cat hoodie\" ? 'acc_' + options.worn_upper_integrity : 'acc') + '.png'",
+            "to": "'img/clothes/' + options.closeup + '/head/' +\n\t\t\t\t\toptions.worn_head_setup.variable + '/' +\n\t\t\t\t\t(options.worn_head_setup.name === \"cat hoodie hood\" && options.worn_upper_setup.name === \"cat hoodie\" ? 'acc_' + options.worn_upper_integrity : 'acc') + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "'img/clothes/neck/' +\n\t\t\t\t\toptions.worn_neck_setup.variable + '/' +\n\t\t\t\t\toptions.worn_neck_integrity + (options.worn_neck_setup.name",
+            "to": "'img/clothes/' + options.bodystyle + '/neck/' +\n\t\t\t\t\toptions.worn_neck_setup.variable + '/' +\n\t\t\t\t\toptions.worn_neck_integrity + (options.worn_neck_setup.name"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "'img/clothes/neck/' +\n\t\t\t\toptions.worn_neck_setup.variable + '/' +\n\t\t\t\t'acc' +\n\t\t\t\t(setup.accessory_integrity_img ? '_' + options[\"worn_\" + slot + \"_integrity\"] : '') +\n\t\t\t\t(isAltPosition ? '_alt' : '') + '.png';",
+            "to": "'img/clothes/' + options.bodystyle + '/neck/' +\n\t\t\t\toptions.worn_neck_setup.variable + '/' +\n\t\t\t\t'acc' +\n\t\t\t\t(setup.accessory_integrity_img ? '_' + options[\"worn_\" + slot + \"_integrity\"] : '') +\n\t\t\t\t(isAltPosition ? '_alt' : '') + '.png';"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "'img/clothes/' +\n\t\t\t\tslot + '/' +\n\t\t\t\toptions[\"worn_\" + slot + \"_setup\"].variable + '/' +\n\t\t\t\t(options[\"worn_\" + slot + \"_integrity\"]) +",
+            "to": "'img/clothes/' + (slot == 'face' ? options.closeup : (slot == 'over_head' ? options.closeup : options.bodystyle)) + '/' +\n\t\t\t\tslot + '/' +\n\t\t\t\toptions[\"worn_\" + slot + \"_setup\"].variable + '/' +\n\t\t\t\t(options[\"worn_\" + slot + \"_integrity\"]) +"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "'img/clothes/' +\n\t\t\t\tslot + '/' +\n\t\t\t\toptions[\"worn_\" + slot + \"_setup\"].variable + '/' +\n\t\t\t\t(Math.min(options.breast_size, 5)) + '.png'",
+            "to": "'img/clothes/' + (slot == 'face' ? options.closeup : (slot == 'over_head' ? options.closeup : (slot == 'face' ? options.closeup : (slot == 'over_head' ? options.closeup : options.bodystyle)))) + '/' +\n\t\t\t\tslot + '/' +\n\t\t\t\toptions[\"worn_\" + slot + \"_setup\"].variable + '/' +\n\t\t\t\t(options[\"worn_\" + slot + \"_setup\"].meow_tag ? options.breast_size : Math.min(options.breast_size, 5)) + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "'img/clothes/' +\n\t\t\t\tslot + '/' +\n\t\t\t\toptions[\"worn_\" + slot + \"_setup\"].variable + '/' +\n\t\t\t\t(Math.min(options.breast_size, 5)) + '_acc.png';",
+            "to": "'img/clothes/' + (slot == 'face' ? options.closeup : (slot == 'over_head' ? options.closeup : options.bodystyle)) + '/' +\n\t\t\t\tslot + '/' +\n\t\t\t\toptions[\"worn_\" + slot + \"_setup\"].variable + '/' +\n\t\t\t\t(options[\"worn_\" + slot + \"_setup\"].meow_tag ? options.breast_size : Math.min(options.breast_size, 5)) + '_acc.png';"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "'img/clothes/' +\n\t\t\t\tslot + '/' +\n\t\t\t\toptions[\"worn_\" + slot + \"_setup\"].variable + '/' +\n\t\t\t\t(isAltPosition ? 'back_alt' : 'back') + '.png';",
+            "to": "'img/clothes/' + (slot == 'head' ? options.closeup : (slot == 'face' ? options.closeup : (slot == 'over_head' ? options.closeup : (slot == 'face' ? options.closeup : (slot == 'over_head' ? options.closeup : options.bodystyle))))) + '/' +\n\t\t\t\tslot + '/' +\n\t\t\t\toptions[\"worn_\" + slot + \"_setup\"].variable + '/' +\n\t\t\t\t(isAltPosition ? 'back_alt' : 'back') + '.png';"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "'img/clothes/' +\n\t\t\t\tslot + '/' +\n\t\t\t\toptions[\"worn_\" + slot + \"_setup\"].variable + '/' +\n\t\t\t\t(options[\"arm_\" + arm] === \"cover\" ? (arm + '_cover.png') : (arm + \".png\"));",
+            "to": "'img/clothes/' + (slot == 'face' ? options.closeup : (slot == 'over_head' ? options.closeup : options.bodystyle)) + '/' +\n\t\t\t\tslot + '/' +\n\t\t\t\toptions[\"worn_\" + slot + \"_setup\"].variable + '/' +\n\t\t\t\t(options[\"arm_\" + arm] === \"cover\" ? (arm + '_cover.png') : (arm + \".png\"));;"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "'img/clothes/' +\n\t\t\t\tslot + '/' +\n\t\t\t\toptions[\"worn_\" + slot + \"_setup\"].variable + '/' +\n\t\t\t\t(options[\"arm_\" + arm] === \"cover\" ? (arm + '_cover_acc.png') : (arm + \"_acc.png\"));",
+            "to": "'img/clothes/' + (slot == 'face' ? options.closeup : (slot == 'over_head' ? options.closeup : options.bodystyle)) + '/' +\n\t\t\t\tslot + '/' +\n\t\t\t\toptions[\"worn_\" + slot + \"_setup\"].variable + '/' +\n\t\t\t\t(options[\"arm_\" + arm] === \"cover\" ? (arm + '_cover_acc.png') : (arm + \"_acc.png\"));"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "function genlayer_clothing_accessory(slot, overrideOptions) {\n\treturn Object.assign({\n\t\tsrcfn(options) {\n\t\t\tlet setup = options[\"worn_\" + slot + \"_setup\"];\n\t\t\tlet isHoodDown = options.hood_down &&\n\t\t\t\tsetup.hoodposition !== undefined &&\n\t\t\t\tsetup.outfitPrimary.head !== undefined;\n\t\t\tlet isAltPosition = options.alt_position &&\n\t\t\t\tsetup.altposition !== undefined;\n\t\t\tlet path = 'img/clothes/' +",
+            "to": "function genlayer_clothing_accessory(slot, overrideOptions) {\n\treturn Object.assign({\n\t\tsrcfn(options) {\n\t\t\tlet setup = options[\"worn_\" + slot + \"_setup\"];\n\t\t\tlet isHoodDown = options.hood_down &&\n\t\t\t\tsetup.hoodposition !== undefined &&\n\t\t\t\tsetup.outfitPrimary.head !== undefined;\n\t\t\tlet isAltPosition = options.alt_position &&\n\t\t\t\tsetup.altposition !== undefined;\n\t\t\tlet path = 'img/clothes/' + (slot == 'face' ? options.closeup : (slot == 'over_head' ? options.closeup : options.bodystyle)) + '/' +"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "function genlayer_clothing_belly(slot, overrideOptions) {\n\treturn Object.assign({\n\t\tsrcfn(options) {\n\t\t\tlet path = 'img/clothes/' +",
+            "to": "function genlayer_clothing_belly(slot, overrideOptions) {\n\treturn Object.assign({\n\t\tsrcfn(options) {\n\t\t\tlet path = 'img/clothes/' + (slot == 'face' ? options.closeup : (slot == 'over_head' ? options.closeup : options.bodystyle)) + '/' +"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "function genlayer_clothing_belly_2(slot, overrideOptions) {\n\treturn Object.assign({\n\t\tsrcfn(options) {\n\t\t\tlet path = 'img/clothes/' +",
+            "to": "function genlayer_clothing_belly_2(slot, overrideOptions) {\n\treturn Object.assign({\n\t\tsrcfn(options) {\n\t\t\tlet path = 'img/clothes/' + (slot == 'face' ? options.closeup : (slot == 'over_head' ? options.closeup : options.bodystyle)) + '/' +"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "function genlayer_clothing_belly_split(slot, overrideOptions) {\n\treturn Object.assign({\n\t\tsrcfn(options) {\n\t\t\tlet path = 'img/clothes/' +",
+            "to": "function genlayer_clothing_belly_split(slot, overrideOptions) {\n\treturn Object.assign({\n\t\tsrcfn(options) {\n\t\t\tlet path = 'img/clothes/' + (slot == 'face' ? options.closeup : (slot == 'over_head' ? options.closeup : options.bodystyle)) + '/' +"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "function genlayer_clothing_belly_shadow(slot, overrideOptions) {\n\treturn Object.assign({\n\t\tsrcfn(options) {\n\t\t\tlet path = 'img/clothes/' +",
+            "to": "function genlayer_clothing_belly_shadow(slot, overrideOptions) {\n\treturn Object.assign({\n\t\tsrcfn(options) {\n\t\t\tlet path = 'img/clothes/' + (slot == 'face' ? options.closeup : (slot == 'over_head' ? options.closeup : options.bodystyle)) + '/' +"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "function genlayer_clothing_belly_acc(slot, overrideOptions) {\n\treturn Object.assign({\n\t\tsrcfn(options) {\n\t\t\tlet setup = options[\"worn_\" + slot + \"_setup\"];\n\t\t\tlet isHoodDown = options.hood_down &&\n\t\t\t\tsetup.hoodposition !== undefined &&\n\t\t\t\tsetup.outfitPrimary.head !== undefined;\n\t\t\tlet isAltPosition = options.alt_position &&\n\t\t\t\tsetup.altposition !== undefined;\n\t\t\tlet path = 'img/clothes/' +",
+            "to": "function genlayer_clothing_belly_acc(slot, overrideOptions) {\n\treturn Object.assign({\n\t\tsrcfn(options) {\n\t\t\tlet setup = options[\"worn_\" + slot + \"_setup\"];\n\t\t\tlet isHoodDown = options.hood_down &&\n\t\t\t\tsetup.hoodposition !== undefined &&\n\t\t\t\tsetup.outfitPrimary.head !== undefined;\n\t\t\tlet isAltPosition = options.alt_position &&\n\t\t\t\tsetup.altposition !== undefined;\n\t\t\tlet path = 'img/clothes/' + (slot == 'face' ? options.closeup : (slot == 'over_head' ? options.closeup : options.bodystyle)) + '/' +"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/angel/rightwing",
+            "to": "img/transformations/${options.closeup}/angel/rightwing"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/angel/rightcover",
+            "to": "img/transformations/${options.closeup}/angel/rightcover"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/angel/leftwing",
+            "to": "img/transformations/${options.closeup}/angel/leftwing"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/angel/leftcover",
+            "to": "img/transformations/${options.closeup}/angel/leftcover"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/angel/backhalo",
+            "to": "img/transformations/${options.closeup}/angel/backhalo"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/angel/fronthalo",
+            "to": "img/transformations/${options.closeup}/angel/fronthalo"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/fallen/rightwing",
+            "to": "img/transformations/${options.closeup}/fallen/rightwing"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/fallen/rightcover",
+            "to": "img/transformations/${options.closeup}/fallen/rightcover"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/fallen/leftwing",
+            "to": "img/transformations/${options.closeup}/fallen/leftwing"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/fallen/leftcover",
+            "to": "img/transformations/${options.closeup}/fallen/leftcover"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/fallen/backbrokenhalo",
+            "to": "img/transformations/${options.closeup}/fallen/backbrokenhalo"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/fallen/frontbrokenhalo",
+            "to": "img/transformations/${options.closeup}/fallen/frontbrokenhalo"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/demon/wings",
+            "to": "img/transformations/${options.closeup}/demon/wings"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/demon/flauntwings",
+            "to": "img/transformations/${options.closeup}/demon/flauntwings"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/demon/leftcover",
+            "to": "img/transformations/${options.closeup}/demon/leftcover"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/demon/tail",
+            "to": "img/transformations/${options.closeup}/demon/tail"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/demon/flaunttail",
+            "to": "img/transformations/${options.closeup}/demon/flaunttail"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/demon/rightcover",
+            "to": "img/transformations/${options.closeup}/demon/rightcover"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/demon/horns",
+            "to": "img/transformations/${options.closeup}/demon/horns"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/wolf/tail",
+            "to": "img/transformations/${options.closeup}/wolf/tail"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/wolf/ears",
+            "to": "img/transformations/${options.closeup}/wolf/ears"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/hirsute/pits",
+            "to": "img/transformations/${options.closeup}/hirsute/pits"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/hirsute/pubes",
+            "to": "img/transformations/${options.closeup}/hirsute/pubes"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/wolf/cheeks",
+            "to": "img/transformations/${options.closeup}/wolf/cheeks"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/cat/tail",
+            "to": "img/transformations/${options.closeup}/cat/tail"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/cat/flaunttail",
+            "to": "img/transformations/${options.closeup}/cat/flaunttail"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/cat/covertail",
+            "to": "img/transformations/${options.closeup}/cat/covertail"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/cat/ears",
+            "to": "img/transformations/${options.closeup}/cat/ears"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/cow/horns",
+            "to": "img/transformations/${options.closeup}/cow/horns"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/cow/ears",
+            "to": "img/transformations/${options.closeup}/cow/ears"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/cow/tag",
+            "to": "img/transformations/\" + options.closeup + \"/cow/tag"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/cow/tail",
+            "to": "img/transformations/${options.closeup}/cow/tail"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/bird/rightwing",
+            "to": "img/transformations/${options.closeup}/bird/rightwing"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/bird/rightcover",
+            "to": "img/transformations/${options.closeup}/bird/rightcover"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/bird/leftwing",
+            "to": "img/transformations/${options.closeup}/bird/leftwing"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/bird/leftcover",
+            "to": "img/transformations/${options.closeup}/bird/leftcover"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/bird/tail",
+            "to": "img/transformations/${options.closeup}/bird/tail"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/bird/eyes",
+            "to": "img/transformations/${options.closeup}/bird/eyes"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/bird/malar",
+            "to": "img/transformations/${options.closeup}/bird/malar"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/bird/plumage",
+            "to": "img/transformations/${options.closeup}/bird/plumage"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/bird/pubes",
+            "to": "img/transformations/${options.closeup}/bird/pubes"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/fox/ears",
+            "to": "img/transformations/${options.closeup}/fox/ears"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/fox/cheeks",
+            "to": "img/transformations/${options.closeup}/fox/cheeks"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "img/transformations/fox/tail",
+            "to": "img/transformations/${options.closeup}/fox/tail"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "\t\t\t\tlet writing = setup.bodywriting[options.writing_forehead];\n\t\t\t\tif (writing.type === \"text\") {\n\t\t\t\t\tif (writing.sprites && writing.sprites.length > 0 && writing.sprites.includes(area_name)) {\n\t\t\t\t\t\treturn 'img/bodywriting/text/' + writing.key + '/' + area_name + '.png';\n\t\t\t\t\t}\n\t\t\t\t\treturn 'img/bodywriting/text/default/' + area_name + '.png';\n\t\t\t\t} else if (writing.type === \"object\") {\n\t\t\t\t\treturn 'img/bodywriting/' + writing.writing + '/' + area_name + '.png'",
+            "to": "\t\t\t\tlet writing = setup.bodywriting[options.writing_forehead];\n\t\t\t\tif (writing.type === \"text\") {\n\t\t\t\t\tif (writing.sprites && writing.sprites.length > 0 && writing.sprites.includes(area_name)) {\n\t\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/text/' + writing.key + '/' + area_name + '.png';\n\t\t\t\t\t}\n\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/text/default/' + area_name + '.png';\n\t\t\t\t} else if (writing.type === \"object\") {\n\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/' + writing.writing + '/' + area_name + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "\t\t\t\tlet writing = setup.bodywriting[options.writing_left_cheek];\n\t\t\t\tif (writing.type === \"text\") {\n\t\t\t\t\tif (writing.sprites && writing.sprites.length > 0 && writing.sprites.includes(area_name)) {\n\t\t\t\t\t\treturn 'img/bodywriting/text/' + writing.key + '/' + area_name + '.png';\n\t\t\t\t\t}\n\t\t\t\t\treturn 'img/bodywriting/text/default/' + area_name + '.png';\n\t\t\t\t} else if (writing.type === \"object\") {\n\t\t\t\t\treturn 'img/bodywriting/' + writing.writing + '/' + area_name + '.png'",
+            "to": "\t\t\t\tlet writing = setup.bodywriting[options.writing_left_cheek];\n\t\t\t\tif (writing.type === \"text\") {\n\t\t\t\t\tif (writing.sprites && writing.sprites.length > 0 && writing.sprites.includes(area_name)) {\n\t\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/text/' + writing.key + '/' + area_name + '.png';\n\t\t\t\t\t}\n\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/text/default/' + area_name + '.png';\n\t\t\t\t} else if (writing.type === \"object\") {\n\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/' + writing.writing + '/' + area_name + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "\t\t\t\tlet writing = setup.bodywriting[options.writing_right_cheek];\n\t\t\t\tif (writing.type === \"text\") {\n\t\t\t\t\tif (writing.sprites && writing.sprites.length > 0 && writing.sprites.includes(area_name)) {\n\t\t\t\t\t\treturn 'img/bodywriting/text/' + writing.key + '/' + area_name + '.png';\n\t\t\t\t\t}\n\t\t\t\t\treturn 'img/bodywriting/text/default/' + area_name + '.png';\n\t\t\t\t} else if (writing.type === \"object\") {\n\t\t\t\t\treturn 'img/bodywriting/' + writing.writing + '/' + area_name + (writing.arrow ? \"_arrow\" : \"\") + '.png'",
+            "to": "\t\t\t\tlet writing = setup.bodywriting[options.writing_right_cheek];\n\t\t\t\tif (writing.type === \"text\") {\n\t\t\t\t\tif (writing.sprites && writing.sprites.length > 0 && writing.sprites.includes(area_name)) {\n\t\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/text/' + writing.key + '/' + area_name + '.png';\n\t\t\t\t\t}\n\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/text/default/' + area_name + '.png';\n\t\t\t\t} else if (writing.type === \"object\") {\n\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/' + writing.writing + '/' + area_name + (writing.arrow ? \"_arrow\" : \"\") + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "\t\t\t\tlet writing = setup.bodywriting[options.writing_breasts];\n\t\t\t\tif (writing.type === \"text\") {\n\t\t\t\t\tif (writing.sprites && writing.sprites.length > 0 && writing.sprites.includes(area_name)) {\n\t\t\t\t\t\treturn 'img/bodywriting/text/' + writing.key + '/' + area_name + '.png';\n\t\t\t\t\t}\n\t\t\t\t\treturn 'img/bodywriting/text/default/' + area_name + '1.png';\n\t\t\t\t} else if (writing.type === \"object\") {\n\t\t\t\t\treturn 'img/bodywriting/' + writing.writing + '/breasts' + options.breast_size + '.png'",
+            "to": "\t\t\t\tlet writing = setup.bodywriting[options.writing_breasts];\n\t\t\t\tif (writing.type === \"text\") {\n\t\t\t\t\tif (writing.sprites && writing.sprites.length > 0 && writing.sprites.includes(area_name)) {\n\t\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/text/' + writing.key + '/' + area_name + '.png';\n\t\t\t\t\t}\n\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/text/default/' + area_name + '1.png';\n\t\t\t\t} else if (writing.type === \"object\") {\n\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/' + writing.writing + '/breasts' + options.breast_size + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "return 'img/bodywriting/text/default/breasts' + options.breast_size + '.png'",
+            "to": "return 'img/bodywriting/' + options.closeup + '/text/default/breasts' + options.breast_size + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "\t\t\t\tlet writing = setup.bodywriting[options.writing_left_shoulder];\n\t\t\t\tif (writing.type === \"text\") {\n\t\t\t\t\tif (writing.sprites && writing.sprites.length > 0 && writing.sprites.includes(area_name)) {\n\t\t\t\t\t\treturn 'img/bodywriting/text/' + writing.key + '/' + area_name + '.png';\n\t\t\t\t\t}\n\t\t\t\t\treturn 'img/bodywriting/text/default/' + area_name + '.png';\n\t\t\t\t} else if (writing.type === \"object\") {\n\t\t\t\t\treturn 'img/bodywriting/' + writing.writing + '/' + area_name + '.png'",
+            "to": "\t\t\t\tlet writing = setup.bodywriting[options.writing_left_shoulder];\n\t\t\t\tif (writing.type === \"text\") {\n\t\t\t\t\tif (writing.sprites && writing.sprites.length > 0 && writing.sprites.includes(area_name)) {\n\t\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/text/' + writing.key + '/' + area_name + '.png';\n\t\t\t\t\t}\n\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/text/default/' + area_name + '.png';\n\t\t\t\t} else if (writing.type === \"object\") {\n\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/' + writing.writing + '/' + area_name + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "\t\t\t\tlet writing = setup.bodywriting[options.writing_right_shoulder];\n\t\t\t\tif (writing.type === \"text\") {\n\t\t\t\t\tif (writing.sprites && writing.sprites.length > 0 && writing.sprites.includes(area_name)) {\n\t\t\t\t\t\treturn 'img/bodywriting/text/' + writing.key + '/' + area_name + '.png';\n\t\t\t\t\t}\n\t\t\t\t\treturn 'img/bodywriting/text/default/' + area_name + '.png';\n\t\t\t\t} else if (writing.type === \"object\") {\n\t\t\t\t\treturn 'img/bodywriting/' + writing.writing + '/' + area_name + '.png'",
+            "to": "\t\t\t\tlet writing = setup.bodywriting[options.writing_right_shoulder];\n\t\t\t\tif (writing.type === \"text\") {\n\t\t\t\t\tif (writing.sprites && writing.sprites.length > 0 && writing.sprites.includes(area_name)) {\n\t\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/text/' + writing.key + '/' + area_name + '.png';\n\t\t\t\t\t}\n\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/text/default/' + area_name + '.png';\n\t\t\t\t} else if (writing.type === \"object\") {\n\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/' + writing.writing + '/' + area_name + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "\t\t\t\tlet writing = setup.bodywriting[options.writing_pubic];\n\t\t\t\tif (writing.type === \"text\") {\n\t\t\t\t\tif (writing.sprites && writing.sprites.length > 0 && writing.sprites.includes(area_name)) {\n\t\t\t\t\t\treturn 'img/bodywriting/text/' + writing.key + '/' + area_name + '.png';\n\t\t\t\t\t}\n\t\t\t\t\treturn 'img/bodywriting/text/default/' + area_name + (writing.arrow ? \"_arrow\" : \"\") + '.png';\n\t\t\t\t} else if (writing.type === \"object\") {\n\t\t\t\t\treturn 'img/bodywriting/' + writing.writing + '/' + area_name + '.png'",
+            "to": "\t\t\t\tlet writing = setup.bodywriting[options.writing_pubic];\n\t\t\t\tif (writing.type === \"text\") {\n\t\t\t\t\tif (writing.sprites && writing.sprites.length > 0 && writing.sprites.includes(area_name)) {\n\t\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/text/' + writing.key + '/' + area_name + '.png';\n\t\t\t\t\t}\n\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/text/default/' + area_name + (writing.arrow ? \"_arrow\" : \"\") + '.png';\n\t\t\t\t} else if (writing.type === \"object\") {\n\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/' + writing.writing + '/' + area_name + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "\t\t\t\tlet writing = setup.bodywriting[options.writing_left_thigh];\n\t\t\t\tif (writing.type === \"text\") {\n\t\t\t\t\tif (writing.sprites && writing.sprites.length > 0 && writing.sprites.includes(area_name)) {\n\t\t\t\t\t\treturn 'img/bodywriting/text/' + writing.key + '/' + area_name + '.png';\n\t\t\t\t\t}\n\t\t\t\t\treturn 'img/bodywriting/text/default/' + area_name + (writing.arrow ? \"_arrow\" : \"\") + '.png';\n\t\t\t\t} else if (writing.type === \"object\") {\n\t\t\t\t\treturn 'img/bodywriting/' + writing.writing + '/' + area_name + '.png'",
+            "to": "\t\t\t\tlet writing = setup.bodywriting[options.writing_left_thigh];\n\t\t\t\tif (writing.type === \"text\") {\n\t\t\t\t\tif (writing.sprites && writing.sprites.length > 0 && writing.sprites.includes(area_name)) {\n\t\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/text/' + writing.key + '/' + area_name + '.png';\n\t\t\t\t\t}\n\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/text/default/' + area_name + (writing.arrow ? \"_arrow\" : \"\") + '.png';\n\t\t\t\t} else if (writing.type === \"object\") {\n\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/' + writing.writing + '/' + area_name + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "\t\t\t\tlet writing = setup.bodywriting[options.writing_right_thigh];\n\t\t\t\tif (writing.type === \"text\") {\n\t\t\t\t\tif (writing.sprites && writing.sprites.length > 0 && writing.sprites.includes(area_name)) {\n\t\t\t\t\t\treturn 'img/bodywriting/text/' + writing.key + '/' + area_name + '.png';\n\t\t\t\t\t}\n\t\t\t\t\treturn 'img/bodywriting/text/default/' + area_name + (writing.arrow ? \"_arrow\" : \"\") + '.png';\n\t\t\t\t} else if (writing.type === \"object\") {\n\t\t\t\t\treturn 'img/bodywriting/' + writing.writing + '/' + area_name + '.png'",
+            "to": "\t\t\t\tlet writing = setup.bodywriting[options.writing_right_thigh];\n\t\t\t\tif (writing.type === \"text\") {\n\t\t\t\t\tif (writing.sprites && writing.sprites.length > 0 && writing.sprites.includes(area_name)) {\n\t\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/text/' + writing.key + '/' + area_name + '.png';\n\t\t\t\t\t}\n\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/text/default/' + area_name + (writing.arrow ? \"_arrow\" : \"\") + '.png';\n\t\t\t\t} else if (writing.type === \"object\") {\n\t\t\t\t\treturn 'img/bodywriting/' + options.closeup + '/' + writing.writing + '/' + area_name + '.png'"
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "zfn(options) {\n\t\t\t\tif (options.arm_right === \"cover\") return ZIndices.arms_cover;\n\t\t\t\treturn options.zarms;\n\t\t\t}",
+            "to": "zfn(options) {\n\t\t\t\tif (options.arm_right === \"cover\") return ZIndices.arms_cover;\n\t\t\t\treturn options.zarms;\n\t\t\t},\t\t\tanimation: \"idle\""
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "if (fn === \"breasts5_clothed.png\") fn = \"breasts6_clothed.png\";",
+            "to": ""
+          },
+          {
+            "TODO": "canvasmodel-main.js",
+            "fileName": "canvasmodel-main.js",
+            "from": "",
+            "to": ""
+          }
+        ],
+        "twee": [
+          {
+            "TODO": "settings.twee",
+            "passageName": "Widgets Settings",
+            "from": "<<set $tending_yield_factor to 5>>",
+            "to": "<<set $tending_yield_factor to 5>>\n\t<<set $closeup to \"default\">>\n\t<<set $bodystyle to \"default\">>"
+          },
+          {
+            "TODO": "canvasmodel-img.twee",
+            "passageName": "Widgets Canvas Model Main",
+            "from": "<<set _modeloptions.facestyle to $facestyle>>",
+            "to": "<<if $options.closeup is undefined>>\n\t\t<<set $options.closeup to \"default\">>\n\t<</if>>\n\t<<set _modeloptions.closeup to $options.closeup>>\n\n\t<<set _modeloptions.facestyle to $facestyle>>"
+          },
+          {
+            "TODO": "canvasmodel-img.twee",
+            "passageName": "Widgets Canvas Model Main",
+            "from": "<<set _modeloptions.facestyle to $facestyle>>",
+            "to": "<<if $options.bodystyle is undefined>>\n\t\t<<set $options.bodystyle to \"default\">>\n\t<</if>>\n\t<<set _modeloptions.bodystyle to $options.bodystyle>>\n\n\t<<set _modeloptions.facestyle to $facestyle>>"
+          },
+          {
+            "TODO": "clothing-v2.twee",
+            "passageName": "Clothing Shop v2 Widgets",
+            "from": "<<set _modeloptions.mannequin to true>>",
+            "to": "<<set _modeloptions.closeup to $options.closeup>>\n\t\t\t\t\t\t<<set _modeloptions.bodystyle to $options.bodystyle>>\n\t\t\t\t\t\t<<set _modeloptions.mannequin to true>>"
+          },
+          {
+            "TODO": "mirror.twee",
+            "passageName": "Widgets Mirror",
+            "from": "<<set _modeloptions.hair_fringe_length to $fringelengthstage>>",
+            "to": "<<set _modeloptions.hair_fringe_length to $fringelengthstage>>\n\t<<set _modeloptions.closeup to $options.closeup>>\n\t<<set _modeloptions.bodystyle to $options.bodystyle>>"
+          },
+          {
+            "TODO": "options.twee",
+            "passageName": "Options Overlay",
+            "from": "<<widget \"optionstheme\">>\n\t<<setupOptions>>",
+            "to": "<<widget \"optionstheme\">>\n\t<<setupOptions>>\n\t<label><<radiobutton \"$options.closeup\" \"default\" autocheck>>默认无特写</label> | \n\t<label><<radiobutton \"$options.bodystyle\" \"default\" autocheck>>默认人模</label> | <br>\n\t<span class=\"gold\">美化选择</span><br><br><br>"
+          },
+          {
+            "TODO": "options.twee",
+            "passageName": "Options Overlay",
+            "from": "<<widget \"optionstheme\">>\n\t<<setupOptions>>",
+            "to": "<<widget \"optionstheme\">>\n\t<<setupOptions>>\n\t<label><<radiobutton \"$options.closeup\" \"local\" autocheck>>导入本地local特写</label> | \n\t<label><<radiobutton \"$options.bodystyle\" \"local\" autocheck>>导入本地local人模</label> | <br> "
+          }
+        ]
+      }
+    },
+    {
+      "modName": "ModLoader DoL ImageLoaderHook",
+      "addonName": "ImageLoaderAddon",
+      "modVersion": "^2.3.1",
+      "params": []
+    },
+    {
+      "modName": "ConflictChecker",
+      "addonName": "ConflictCheckerAddon",
+      "modVersion": "^1.0.0",
+      "params": {
+        "mustBefore": [
+        ],
+        "mustAfter": [
+        ],
+        "optionalBefore": [
+        ],
+        "optionalAfter": [
+        ],
+        "blackBefore": [
+        ],
+        "blackAfter": [
+        ]
+      }
+    }
+  ],
+  "dependenceInfo": [
+    {
+      "modName": "ModLoader",
+      "version": "^2.1.0"
+    },
+    {
+      "modName": "TweeReplacer",
+      "version": "^1.0.0"
+    },
+    {
+      "modName": "ReplacePatcher",
+      "version": "^1.0.0"
+    },
+    {
+      "modName": "ModLoader DoL ImageLoaderHook",
+      "version": "^2.3.1"
+    },
+    {
+      "modName": "ConflictChecker",
+      "version": "^1.1.0"
+    }
+  ]
+}

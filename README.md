@@ -1,156 +1,32 @@
-# Beauty_selector
-> 可以在游戏中一键切换特写美化或人模美化的mod助手。
->
-> 该mod需要helper器和loader器进行辅助。（最后一步放连接）
->
-> **只有特写创作者需要用到helper**，普通使用者只需要loader和Beauty_selector，直接去看5.loader加载mod教程
+# 特写人模美化管理器 Beauty-selector
 
----
+### 本地美化食用指南
 
-使用方法：
+美化选择器（以下简称bs）所设置的默认美化为内置的原版美化，无法通过替换img文件内的文件方式，即旧美化方法的方式进行更换或修改
+本次更新增加了local选项，即用户可自定义自己的本地美化包，并通过使用美化选择器进行管理，自定义的本地美化包下文统称本地美化
 
-1. 这个mod对 `img ` 内的图片文件根据属于 `特写美化` 还是 `人模美化` 进行了分类，**注意衣物(clothes/)相关的差别**
+### 本地美化人模安装方式
 
-特写 **closeup**：
+1. 在带有Modloader的游戏文件路径的img/body下新建local文件夹
 
-```
-/face/
-/hair/
-/body/basehead
-/body/cum/Face 1,2 & /body/cum/Face 3,4 & /body/cum/Face 5  **脸部精液**
-/clothes/head 
-/clothes/face
-/clothes/overhead //需要overfits.mod或自己开槽
-/transformations/
-```
+2. 将所要安装的美化资源文件部署在local文件夹下，以原版资源为例，即将要迁移的资源的img/body路径下的所有文件复制到"带有Modloader的游戏文件/img/body/local"，即第一步所新建local文件夹内
 
-人模 **bodystyle**：
+3. 启动在该游戏文件路径下的带有Modloader的游戏本体，在美化选择界面选择导入本地local人模
 
-```
-/body
-/hair/phair
-/clothes
-```
+   **img中对hair，clothes，transformations的本地化操作同此**
+
+### 本地美化特写安装方式
+
+1. 在带有Modloader的游戏文件路径的img/face下新建local文件夹
+2. 将所要安装的美化资源文件部署在local文件夹下，以原版资源为例，即将要迁移的资源的img/face/default路径下的所有文件复制到"带有Modloader的游戏文件/img/face/local"路径下，即第一步所新建local文件夹内
+3. 启动在该游戏文件路径下的带有Modloader的游戏本体，在美化选择界面选择导入本地local特写
 
 
 
-2. 在 `boot.json ` 文件根据 1. 填写你导入的img文件属于哪一类的美化，替换{mod_name}为你的美化名
+## 注意
 
-   人模美化 **bodystyle**：
-
-   ```
-   {
-   	"TODO": "options.twee",
-   	"passageName": "Options Overlay",
-   	"from": "<span class=\"gold\">美化选择</span><br>",
-   	"to": "<span class=\"gold\">美化选择</span><br>\n\t<label><<radiobutton \"$options.bodystyle\" \"{mod_name}\" autocheck>> {选项-主题里显示的名字}</label> | <br>"
-   }
-   ```
-
-   拿`beeesss`举例，
-
-   ```
-   {
-       "TODO": "options.twee",
-       "passageName": "Options Overlay",
-       "from": "<span class=\"gold\">美化选择</span><br>",
-       "to": "<span class=\"gold\">美化选择</span><br>\n\t<label><<radiobutton \"$options.bodystyle\" \"bee\" autocheck>> BEE</label> | <br>"
-                  }
-   ```
-
-​	脸部特写  **closeup**:
-
-```
-{
-	"TODO": "options.twee",
-	"passageName": "Options Overlay",
-	"from": "<span class=\"gold\">美化选择</span><br>",
-	"to": "<span class=\"gold\">美化选择</span><br>\n\t<label><<radiobutton \"$options.closeup\" \"{mod_name}\" autocheck>> {选项-主题里显示的名字}</label> | <br>"
-}
-```
-
-> **提醒** : 第一行的name记得改成你的mod名字，所有的{}都是你要替换的，最后boot里不会有任何中文字，如果同时有bodystyle和closeup，就打一个逗号（英文的）然后复制粘贴上面的代码（twee里只有两个{}之间有，不要在最后一个{}的后面写，）
+需要注意的是，本地美化所在游戏文件路径应当与使用的带Modloader的本体所在的游戏路径保持一致，即请修改Modloader同一根目录下的img文件
 
 
 
-3. 下载helper，放入`mods`文件夹，在 `mods` 里的 `img` 文件夹里根据 1. 的分类建立所需要的 `body`、`face`、`hair` 、`clothes` 文件夹，再在该文件下建立以你的 {mod_name} 命名的文件夹，再把你的美化文件放进去
-
-   文件目录最后如下：
-
-   ```
-   mods
-    ├── {mod_name}
-    │    ├── boot.json <你需要编写代码的地方>
-    │    └── img 
-    │    	   ├── face (如果有)
-    │    	   		└── {mod_name} ({mod_name}里面再建你美化的文件夹)
-    │    	   └── hair (如果没画可以从pb或原版搬能用的png放着，不然找不到图会报错)
-    │    	   		└── {mod_name} ({mod_name}里面再建你美化的文件夹)
-    │    	   ├── body (如果有)
-    │    	   		└── {mod_name} ({mod_name}里面再建你美化的文件夹)
-    │    	   └── clothes (如果没画可以从pb或原版搬能用的png放着，不然找不到图会报错)
-    │    	   		└── {mod_name} ({mod_name}里面再建你美化的文件夹)
-    │    	   			  ├── upper (举例)
-    │					  ...
-    ...
-   ```
-
-   
-
-4. 最后，在helper下的根目录（有main.py的）的资源路径导航栏（就是那个显示文件夹目录名字的框）输入
-
-   ```
-   cmd
-   ```
-
-   在弹出的黑框输入代码按下ENTER，
-
-   ```
-   pip install -r requirements.txt
-   ```
-
-   ```python
-   python -m main
-   ```
-
-   等他运行完，你helper下的results文件里会出现一个zip文件，那个就是你用于loader的mod包了。
-
-   
-
-5. 打开loader里的html文件，在左下角有个 `Mod管理器` 点击它，依次点击执行以下操作：
-
-   选择文件-双击mod包-添加旁加载Mod-重新载入。
-
-   加载顺序：i18n => Beauty-selector => 想要的美化.zip
-
-   然后就可以开始游戏了。
-
-   > 手机就随便找个包替换掉img文件和html。
-   >
-   > 想导入汉化（i18n.zip）也是同样的步骤。
-   >
-   > 如果要移除某个mod包，就在Mod管理器里找出你要移除的mod然后点他旁边那个按钮移除。
-
-   
-
-6. 写好模板的helper器链接，原作者（Number_Sir）：
-
-   https://github.com/NumberSir/DOL-Mod-Created-Helper
-
-   打包好的loader器+汉化包（i18n.zip），原作者（Lyoko-Jeremie）：
-
-   https://github.com/suin14/Beauty_selector_helper
-
-   仓库里有打包好的bee+paril美化做例子（只是写mod的测试用例，不保证使用）
-
-   beauty-selector美化转换器发布仓库：
-
-   https://github.com/suin14/Beauty_selector_helper
-
-   **需要挂梯子，github怎么下载文件不需要我教了吧orz**
-
-
-
-**实在真的搞不懂再找作者**
-
-QQ：3042931495 猫猫教传教士
+_readme编写员：海岛求生中_
